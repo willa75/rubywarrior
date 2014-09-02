@@ -3,15 +3,17 @@ class Player
     if warrior.health < 19 and warrior.feel.empty? and warrior.health >= @health
             warrior.rest!
     else
-        while True
+        do
           if warrior.feel.empty(:backward)
             warrior.walk!(:backward)
           else if warrior.feel.captive?(:backward)
             warrior.rescue!(:backward)
           else
             warrior.attack!(:backward)
+          end#ends else if
           end #ends backwards if statement
-        end#ends while loop  
+        break if False   
+        end#ends while loop
 
         if warrior.feel.empty?
           warrior.walk!
